@@ -37,7 +37,7 @@ y_extra_info=data.label_extra_ordered, div_name="myplot"):
 	           #y_axis_label = ,
 	           x_range=(0,100), y_range=y_variables, tools=TOOLS, tooltips=tooltips)
 
-	plot.hbar(left='values', y='variables', right=1, height=0.9, fill_color='red', line_color='black', fill_alpha = 0.75,
+	plot.circle(x='values', y='variables', size=20, color='red', alpha = 0.75,
 	        hover_fill_alpha = 1.0, hover_fill_color = 'navy', source=all_data)
 	plot.title.text = "Relevant statistics about " + area
 	

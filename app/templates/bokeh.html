@@ -9,41 +9,38 @@
 <H2 class="mt-3">Renting in Amsterdam</H2>
 
 <form action="/bokeh">
-
-<p clas=="lead">I am looking for a rental place with the following properties:</p>
-<select name="property_type">
-	{% for property_type in all_property_types %}
-		{% if property_type == selected_property_type %}
-			<option selected value="{{ property_type }}">{{all_property_types_text[loop.index - 1]}}</option> 
-		{% else %} 
-			<option value="{{ property_type }}">{{all_property_types_text[loop.index - 1]}}</option> 
-		{% endif %}
-	{% endfor %}
-</select>
-<select name="rental_price">
-	{% for rental_price in all_rental_prices %}
-		{% if rental_price == selected_rental_price %}
-			<option selected value="{{ rental_price }}">{{all_rental_prices_text[loop.index - 1]}}</option> 
-		{% else %} 
-			<option value="{{ rental_price }}">{{all_rental_prices_text[loop.index - 1]}}</option> 
-		{% endif %}
-	{% endfor %}
-</select>
-<select name="surface_area">
-	{% for surface_area in all_surface_areas %}
-		{% if surface_area == selected_surface_area %}
-			<option selected value="{{ surface_area }}">{{all_surface_areas_text[loop.index - 1]}}</option> 
-		{% else %} 
-			<option value="{{ surface_area }}">{{all_surface_areas_text[loop.index - 1]}}</option> 
-		{% endif %}
-	{% endfor %}
-</select>
-<button class="btn btn-light" type="submit">Submit Query</button>
+	<p clas=="lead">I am looking for a rental place with the following properties:</p>
+	<select name="property_type">
+		{% for property_type in all_property_types %}
+			{% if property_type == selected_property_type %}
+				<option selected value="{{ property_type }}">{{all_property_types_text[loop.index - 1]}}</option> 
+			{% else %} 
+				<option value="{{ property_type }}">{{all_property_types_text[loop.index - 1]}}</option> 
+			{% endif %}
+		{% endfor %}
+	</select>
+	<select name="rental_price">
+		{% for rental_price in all_rental_prices %}
+			{% if rental_price == selected_rental_price %}
+				<option selected value="{{ rental_price }}">{{all_rental_prices_text[loop.index - 1]}}</option> 
+			{% else %} 
+				<option value="{{ rental_price }}">{{all_rental_prices_text[loop.index - 1]}}</option> 
+			{% endif %}
+		{% endfor %}
+	</select>
+	<select name="surface_area">
+		{% for surface_area in all_surface_areas %}
+			{% if surface_area == selected_surface_area %}
+				<option selected value="{{ surface_area }}">{{all_surface_areas_text[loop.index - 1]}}</option> 
+			{% else %} 
+				<option value="{{ surface_area }}">{{all_surface_areas_text[loop.index - 1]}}</option> 
+			{% endif %}
+		{% endfor %}
+	</select>
+	<button class="btn btn-light" type="submit">Submit Query</button>
 </form>
 
-
 <div class="mt-3" id="prediction-container"></div>
-
 
 <div id="myplot"></div>
 
