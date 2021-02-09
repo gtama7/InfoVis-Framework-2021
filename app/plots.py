@@ -1,6 +1,6 @@
 from bokeh.plotting import figure, ColumnDataSource
 from bokeh.layouts import row, column, widgetbox
-from bokeh.models import HoverTool, Slider, CustomJS
+from bokeh.models import HoverTool, Slider, CustomJS, Spinner
 from bokeh.embed import json_item
 from . import data
 
@@ -41,16 +41,16 @@ y_extra_info=data.label_extra_ordered, div_name="myplot"):
 	        hover_fill_alpha = 1.0, hover_fill_color = 'navy', source=all_data)
 	plot.title.text = "Relevant statistics about " + area
 	
-	part_rent_slider = Slider(start=0, end=100, value=plot_data.loc[:, 'WPARTHUUR_P'].iloc[0], step=1, title="Private rental")
-	corp_rent_slider = Slider(start=0, end=100, value=plot_data.loc[:, 'WCORHUUR_P'].iloc[0], step=1, title="Housing corporation rental")
-	high_rent_slider = Slider(start=0, end=100, value=plot_data.loc[:, 'WHUURHOOG_P'].iloc[0], step=1, title="High rent (> 971 euro)")
-	middle_rent_slider = Slider(start=0, end=100, value=plot_data.loc[:, 'WHUURMIDDEN_P'].iloc[0], step=1, title="Middle high rent (711 - 971 euro)")
-	low_rent_slider = Slider(start=0, end=100, value=plot_data.loc[:, 'WHUURTSLG_P'].iloc[0], step=1, title="Low rent (< 711 euro)")
-	living_space_040 = Slider(start=0, end=100, value=plot_data.loc[:, 'WOPP0040_P'].iloc[0], step=1, title="Living space of 0-40 m2")
-	living_space_4060 = Slider(start=0, end=100, value=plot_data.loc[:, 'WOPP4060_P'].iloc[0], step=1, title="Living space of 40-60 m2")
-	living_space_6080 = Slider(start=0, end=100, value=plot_data.loc[:, 'WOPP6080_P'].iloc[0], step=1, title="Living space of 60-80 m2")
-	living_space_80100 = Slider(start=0, end=100, value=plot_data.loc[:, 'WOPP80100_P'].iloc[0], step=1, title="Living space of 80-100 m2")
-	living_space_100 = Slider(start=0, end=100, value=plot_data.loc[:, 'WOPP100PLUS_P'].iloc[0], step=1, title="Living space of > 100 m2")
+	part_rent_slider = Spinner(low=0, high=100, value=plot_data.loc[:, 'WPARTHUUR_P'].iloc[0], step=1, title="Private rental", width=80)
+	corp_rent_slider = Spinner(low=0, high=100, value=plot_data.loc[:, 'WCORHUUR_P'].iloc[0], step=1, title="Housing corporation rental", width=80)
+	high_rent_slider = Spinner(low=0, high=100, value=plot_data.loc[:, 'WHUURHOOG_P'].iloc[0], step=1, title="High rent (> 971 euro)", width=80)
+	middle_rent_slider = Spinner(low=0, high=100, value=plot_data.loc[:, 'WHUURMIDDEN_P'].iloc[0], step=1, title="Middle high rent (711 - 971 euro)", width=80)
+	low_rent_slider = Spinner(low=0, high=100, value=plot_data.loc[:, 'WHUURTSLG_P'].iloc[0], step=1, title="Low rent (< 711 euro)", width=80)
+	living_space_040 = Spinner(low=0, high=100, value=plot_data.loc[:, 'WOPP0040_P'].iloc[0], step=1, title="Living space of 0-40 m2", width=80)
+	living_space_4060 = Spinner(low=0, high=100, value=plot_data.loc[:, 'WOPP4060_P'].iloc[0], step=1, title="Living space of 40-60 m2", width=80)
+	living_space_6080 = Spinner(low=0, high=100, value=plot_data.loc[:, 'WOPP6080_P'].iloc[0], step=1, title="Living space of 60-80 m2", width=80)
+	living_space_80100 = Spinner(low=0, high=100, value=plot_data.loc[:, 'WOPP80100_P'].iloc[0], step=1, title="Living space of 80-100 m2", width=80)
+	living_space_100 = Spinner(low=0, high=100, value=plot_data.loc[:, 'WOPP100PLUS_P'].iloc[0], step=1, title="Living space of > 100 m2", width=80)
 
 	all_sliders = [part_rent_slider, corp_rent_slider, high_rent_slider,middle_rent_slider, low_rent_slider, 
 	living_space_100, living_space_80100, living_space_6080, living_space_4060, living_space_040]
